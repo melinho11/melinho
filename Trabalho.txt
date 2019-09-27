@@ -1,0 +1,94 @@
+
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+/**
+ *
+ * @author Matheus e Edson
+ */
+public class Trabalho {
+
+    static int[] reconhecimentoPadraoLinhas(int mat[][]) {
+        int linhas[] = new int[mat.length];
+ 
+
+            for (int i = 1; i < mat.length; i++) { // for para percorrer as linhas 
+                //int resultadoLinhas = 0;
+
+                int acima = mat.length - (mat.length - i); // Descobrindo as linhas que estão a cima
+
+                for (int j = 0; j < acima; j++) { // for para percorrer os valores das colunas para a soma
+                    for (int k = 0; k < mat[i].length; k++) { //percorrendo e somando os valores de cima da matriz
+                        linhas[l] += mat[j][k];
+                        // resultadoLinhas += mat[j][k]; //somando as linhas de de cima
+                        // linhas[l] = resultadoLinhas;
+
+                    }
+                }
+                int abaixo = mat.length - i; // descobrindo as linhas que estão a baixo
+
+                for (int j = abaixo; j < mat.length; j++) { //percorrendo a parte de baixo da matriz
+                    for (int k = 0; k < mat[i].length; k++) { // percorrendo e somando as linhas de baixo
+                        linhas[l] += mat[j][k];
+                        // resultadoLinhas += mat[j][k];
+                        //linhas[l] = resultadoLinhas; // adicionando os resultados no vetor para a comparação
+                    }
+                }
+                // linhas[i] = resultadoLinhas; // adicionando os resultados no vetor para a comparação
+            }
+        
+
+        return linhas;
+    }
+
+    static int menorValor(int[] vet) { // metodo para descobrir o menor valor da soma
+        int menor = vet[0];
+        for (int i = 0; i < vet.length; i++) {
+            if (menor > vet[i]) {
+                menor = vet[i];
+            }
+        }
+        return menor;
+    }
+
+    static int[] reconhecimentoPadraoColunas(int mat[][]) {
+        int colunas[] = new int[mat[0].length];
+
+        for (int i = 1; i < mat[0].length; i++) {
+            int resultadoColunas = 0;
+            int esquerda = mat[0].length - (mat[0].length - i);
+
+            for (int j = 0; j < esquerda; j++) {
+                for (int k = 0; k < mat[0].length; k++) {
+                    resultadoColunas += mat[k][j];
+                }
+            }
+            int direita = mat[0].length - 1 - i;
+
+            for (int j = direita - 1; j < mat[0].length; j++) {
+                for (int k = 0; k < mat[0].length; k++) {
+                    resultadoColunas += mat[k][j];
+                }
+            }
+            colunas[i] = resultadoColunas;
+        }
+        return colunas;
+    }
+
+    public static void main(String[] args) {
+
+        int mat[][] = {{1, 2, 3, 4, 5},
+        {1, 2, 3, 4, 5},
+        {1, 2, 3, 4, 5},
+        {1, 2, 3, 4, 5}};
+        int resultadoLinha[] = reconhecimentoPadraoLinhas(mat);
+
+        for (int i = 0; i < resultadoLinha.length; i++) {
+            System.out.print(resultadoLinha[i] + " ");
+
+        }
+
+    }
+}
