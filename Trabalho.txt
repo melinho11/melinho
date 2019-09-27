@@ -12,7 +12,7 @@ public class Trabalho {
 
     static int[] reconhecimentoPadraoLinhas(int mat[][]) {
         int linhas[] = new int[mat.length];
- 
+        for (int l = 0; l < linhas.length; l++) {
 
             for (int i = 1; i < mat.length; i++) { // for para percorrer as linhas 
                 //int resultadoLinhas = 0;
@@ -24,7 +24,6 @@ public class Trabalho {
                         linhas[l] += mat[j][k];
                         // resultadoLinhas += mat[j][k]; //somando as linhas de de cima
                         // linhas[l] = resultadoLinhas;
-
                     }
                 }
                 int abaixo = mat.length - i; // descobrindo as linhas que estão a baixo
@@ -38,7 +37,7 @@ public class Trabalho {
                 }
                 // linhas[i] = resultadoLinhas; // adicionando os resultados no vetor para a comparação
             }
-        
+        }
 
         return linhas;
     }
